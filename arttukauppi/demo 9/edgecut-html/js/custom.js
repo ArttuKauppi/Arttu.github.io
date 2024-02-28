@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded",onkoKirjaunut);
 function onkoKirjaunut(){
     let kirjautunut ='kylla';
@@ -29,4 +30,4 @@ tarkistaKirjautuminen();
 
 document.addEventListener('DOMContentLoaded', function () {
 tarkistaKirjautuminen();
-});
+}); 
