@@ -28,7 +28,12 @@ if (kirjautunut) {
 } else {
     menu_nappi.style.display = 'none';
 }
+if(localStorage) {
 
+    kirjautumis_lomake.style.display ='block';
+} else {
+    kirjautumis_lomake.style.display ='none'; 
+}
 function kirjauduUlos() {
     localStorage.clear();
     tarkistaKirjautuminen(); 
