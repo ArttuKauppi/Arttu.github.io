@@ -66,9 +66,7 @@
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#menu"><span>Menu</span></a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#gallery"><span>Gallery</span></a>
-            </li>
+            
 			
            
           </ul>
@@ -99,7 +97,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<title>demo8</title>
-		<script type="text/javascript" language="javascript" src="C:\Users\arttu.kauppi\Documents\GitHub\Arttu.github.io\arttukauppi\ryhmä\Green Special Free Website Template - Free-CSS.com (1)\green-special\js\gr.js"></script>
+		<script type="text/javascript" language="javascript" src="js\gr.js"></script>
 		<script type="text/javascript">
 			function tarkistaKirjautuminen() {
 				var kirjautunut = localStorage.getItem('kirjautunut');
@@ -127,9 +125,18 @@
 		<p id="tervetulo_teksti">Tervetuloa </p>
 		<form id="kirjautumis_lomake">
 			<h1><input id="nimi" type="text" placeholder="Syötä nimesi" value="" />
-			<input type="submit" value="Kirjaudu sisään" id="kirjaudu_nappi" onclick="kirjaudu()" /></h1>
-		</form>
-		<h2><button id="kirjaudu_ulos_nappi" style="display: none;" onclick="kirjauduUlos()">Kirjaudu ulos</button></h2>
+				
+			</h1>
+				<h3><input id="salasana" type="password" placeholder="salasana" value="" /></h3>
+				<h1><input type="submit" value="Kirjaudu sisään" id="kirjaudu_nappi" onclick="kirjaudu()" /></h1>
+			</form>
+			<h2><button id="kirjaudu_ulos_nappi" style="display: none;" onclick="kirjauduUlos(localStorage.clear())">Kirjaudu ulos</button></h2>
+			<h4>	
+				  				
+				  <li class="nav-item" id="menu_nappi" style="display: none;">
+					<a class="nav-link js-scroll-trigger" href="#menu"><span>Menu</span></a>
+				</li>	  
+			</h4>
 	</body>
 	
     
