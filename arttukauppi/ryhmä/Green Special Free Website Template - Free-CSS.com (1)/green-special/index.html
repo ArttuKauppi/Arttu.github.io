@@ -239,74 +239,36 @@
 
 			</div>
 		
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Ostoskori</title>
 	
-    <script>
-        var ostoskori = []; // Alusta tyhjä ostoskori
-
-        function lisaa_tuote(nimi, hinta) {
-            ostoskori.push({ nimi: nimi, hinta: hinta }); // Lisää tuote ostoskoriin
-            paivitaOstoskori(); // Päivitä näyttö
-        }
-
-        function paivitaOstoskori() {
-            var ostoskoriElementti = document.getElementById("ostoskori");
-            var yhteishintaElementti = document.getElementById("yhteishinta");
-            var yhteishinta = 0;
-
-            ostoskoriElementti.innerHTML = ""; // Tyhjennä ensin ostoskorin näyttö
-
-            // Lisää jokainen tuote ostoskorista näyttöön ja laske yhteishinta
-            for (var i = 0; i < ostoskori.length; i++) {
-                var tuote = ostoskori[i];
-                var tuoteElementti = document.createElement("li");
-                tuoteElementti.textContent = tuote.nimi + " - " + tuote.hinta + "€";
-                ostoskoriElementti.appendChild(tuoteElementti);
-                yhteishinta += tuote.hinta;
-            }
-
-            // Päivitä yhteishinnan näyttö
-            yhteishintaElementti.textContent = "Yhteishinta: " + yhteishinta + "€";
-        }
-
-        function tilaa() {
-            // Simuloidaan tilauksen lähettäminen
-            alert("Tilaus lähetetty!");
-            // Tyhjennetään ostoskori ja päivitetään näyttö
-            ostoskori = [];
-            paivitaOstoskori();
-        }
-    </script>
+    <script type="text/javascript" language="javascript" src="js\osto.js"></script>
+    <script></script>
 </head>
 <body>
 
-	<h2>Osoitetiedot:</h2>
-	<form>
-		<div class="section-label text-left">
-		<label for="Katuosoite">Katuosoite:</label>
-		</div>
-		<input type="text" id="osoite" name="osoite"><br><br>
-		<div class="section-label text-left">
-		<label for="Postinumero">Postinumero:</label>
-	</div>
-		<input type="text" id="talo" name="talo"><br><br>
-		<div class="section-label text-left">
-		<label for="Talon numero">Talon numero:</label>
-		</div>
-		<input type="text" id="talonNumero" name="talonNumero"><br><br>
-		<div class="section-label text-left">
-		<label for="Lisätietoa">Lisätietoa:</label>
-	</div>
-		<input type="text" id="Lisätietoa" name="ovikoodi"><br><br>
-	
-	</form>
-	<button onclick="tilaa()">Valmistele tilaus</button>
-
-
-
-<!-- Ostoskorin näyttö -->
+	<form style="display: none;" id ="osoite">
+        <div class="section-label text-left" id ="osoite">
+            <label for="Katuosoite">Katuosoite:</label>
+        </div>
+        <input type="text" id="osoite" name="osoite"><br><br>
+        <div class="section-label text-left">
+            <label for="Postinumero">Postinumero:</label>
+        </div>
+        <input type="text" id="talo" name="talo"><br><br>
+        <div class="section-label text-left">
+            <label for="Talon numero">Talon numero:</label>
+        </div>
+        <input type="text" id="talonNumero" name="talonNumero"><br><br>
+        <div class="section-label text-left">
+            <label for="Lisätietoa">Lisätietoa:</label>
+        </div>
+        <input type="text" id="Lisätietoa" name="ovikoodi"><br><br>
+        <button style="display: block;" onclick="tila()"> Tilaa</button>
+    </form>
+    
+    <h3><button id="nappi" onclick="naytaosoite()">Valmistele tilauksesi</button></h3>
+    
 
 </body>
 </html>
@@ -456,7 +418,7 @@
 <div class="section-title text-center">
     <div class="section-title text-center">
         <textarea id="feedback" placeholder="Kirjoita palautteesi tähän..." rows="2" cols="50" required ></textarea><br><br>
-        <input type="email" id="posti" name="email" required></input>
+        <textarea id="posti" placeholder="sähköpostisi" type="email"cols="50" required></textarea>
     </div>
     <button onclick="submitFeedback()">Lähetä palautetta</button>
     
@@ -515,15 +477,9 @@
             <div class="footer-distributed">
                 <div class="footer-left">
                     <p class="footer-links">
-                        <a href="#">Home</a>
-                        <a href="#">Blog</a>
-                        <a href="#">Pricing</a>
-                        <a href="#">About</a>
-                        <a href="#">Faq</a>
-                        <a href="#">Contact</a>
-                    </p>
-                    <p class="footer-company-name">All Rights Reserved. &copy; 2018 <a href="#">Green Special</a> Design By : 
-					<a href="https://html.design/">html design</a></p>
+                      
+                        
+                    
                 </div>
             </div>
         </div><!-- end container -->

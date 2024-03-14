@@ -21,24 +21,32 @@ function laskeYhteishinta() {
     return yhteishinta;
 }
 
-// Tilausprosessi
-function teeTilaus() {
-    var yhteishinta = laskeYhteishinta();
+function tieto(){
+
     var osoite = document.getElementById("osoite").value;
     var talo = document.getElementById("talo").value;
     var talonNumero = document.getElementById("talonNumero").value;
     var ovikoodi = document.getElementById("ovikoodi").value;
+    
 
-    if (yhteishinta > 0) {
-        // Tässä voit toteuttaa tilauksen lähetyksen tai muun toiminnallisuuden
-        alert("Tilaus tehty! Yhteishinta: " + yhteishinta + "€. Osoite: " + osoite + ", Talo: " + talo + ", Talon numero: " + talonNumero + ", Ovikoodi: " + ovikoodi);
+}
+// Tilausprosessi
+function tila() {
+    var yhteishinta = laskeYhteishinta();
+    if (ostoskori.length > 0) { // Tarkista, että ostoskorissa on tuotteita ennen tilauksen tekemistä
+        
+        alert("Tilaus tehty! Yhteishinta: " + yhteishinta + "€");
         // Tyhjennä ostoskori tilauksen jälkeen
         ostoskori = [];
         paivitaOstoskori(); // Päivitä ostoskorin näyttö
     } else {
         alert("Ostoskorisi on tyhjä. Valitse ensin tuotteita.");
     }
+   
+
 }
+
+
 
 // Päivitä ostoskorin näyttö
 function paivitaOstoskori() {   
@@ -70,21 +78,8 @@ function paivitaOstoskori() {
 }
 
 // Lisää monta tuotetta kerralla
-function lisaaMontaTuotetta(tuoteNimi, hinta) {
-    const määräKenttä = document.getElementById('pepperoniQuantity');
-    const määrä = parseInt(määräKenttä.value);
-    
-    if (isNaN(määrä) || määrä <= 0) {
-        alert('Syötä kelvollinen määrä.');
-        return;
+
+function naytaosoite() {
+    document.getElementById('osoite').style.display = 'block';
+    document.getElementById('nappi').style.display = 'none';
     }
-    
-    for (let i = 0; i < määrä; i++) {
-        lisaa_tuote(tuoteNimi, hinta);
-    }
-    
-    // Tyhjennä kenttä lisäyksen jälkeen
-    määräKenttä.value = '';
-    
-    
-}
