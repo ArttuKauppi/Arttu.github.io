@@ -85,85 +85,133 @@
 				<div class="container">
 					<div class="slider-content text-white">
 						<div class="in-box">
-							<head>
+                            <head>
+                                
+                                    <head>
+                                        
+                                        <title>Luo tili</title>
+                                    </head>
+                                    <body>
+                                        <script type="text/javascript" language="javascript" src="js\gr.js"></script>
+                                        <script type="text/javascript">
+                                            function tarkistaKirjautuminen() {
+                                                var kirjautunut = localStorage.getItem('kirjautunut');
+                                                var kirjauduUlosNappi = document.getElementById('kirjaudu_ulos_nappi');
+                                
+                                                if (kirjautunut) {
+                                                    kirjauduUlosNappi.style.display = 'block';
+                                                } else {
+                                                    kirjauduUlosNappi.style.display = 'none';
+                                                }
+                                            }
+                                
+                                            function kirjauduUlos() {
+                                                localStorage.removeItem('kirjautunut');
+                                                tarkistaKirjautuminen(); 
+                                            }
+                                
+                                            document.addEventListener('DOMContentLoaded', function () {
+                                                tarkistaKirjautuminen();
+                                            });
+                                        </script>
+                                    
+                                        <p id="tervetulo_teksti">Tervetuloa </p>
+                                        <form id="kirjautumis_lomake">
+                                            <h1><input id="nimi" type="text" placeholder="Syötä nimesi" value="" required/>
+                                                
+                                            </h1>
+                                                <h3><input id="salasana" type="password" placeholder="salasana" value="" required/></h3>
+                                                <h3><input type="submit" value="Kirjaudu sisään" id="kirjaudu_nappi" onclick="kirjaudu()" /></h3>
+                                                
+                                            </form>
+                                            <h2><button id="kirjaudu_ulos_nappi" style="display: none;" onclick="kirjauduUlos(localStorage.clear())">Kirjaudu ulos</button></h2>
+                                            <h3><button id="rekisteroitymislomake_nappi" onclick="naytaRekisteroitymislomake()">Luo tili</button></h3>
+                                
+                                            <h4>	
+                                                                  
+                                                  <li class="nav-item" id="menu_nappi" style="display: none;">
+                                                    <a class="nav-link js-scroll-trigger" href="#menu"><span>Menu</span></a>
+                                                </li>	  
+                                            </h4>
+                                            
+                                
+                                      <form id="registrationForm" style="display: none;">
+                                        <h3>
+                                          <label for="username">Käyttäjänimi:</label><br>
+                                          <input type="text" id="username" name="username" required><br>
+                                          
+                                          <label for="email">Sähköposti:</label><br>
+                                          <input type="email" id="email" name="email" required><br>
+                                          
+                                          <label for="password">Salasana:</label><br>
+                                          <input type="password" id="password" name="password" required><br>
+                                          
+                                          <button type="submit" id="registerButton">Rekisteröidy</button>
+                                        </h3>
+                                      </form>
+                                      
+                                      <div id="registrationDetails" style="display:none;">
+                                        <h2></h2>
+                                        <p id="usernameDisplay"></p>
+                                        <p id="emailDisplay"></p>
+                                        <p id="passwordDisplay"></p>
+                                      </div>
+                                      
+                                      <script>
+                                        function naytaRekisteroitymislomake() {
+                                          document.getElementById('registrationForm').style.display = 'block';
+                                          document.getElementById('kirjautumis_lomake').style.display = 'none'; // Piilotetaan kirjautumislomake
+                                          document.getElementById('rekisteroitymislomake_nappi').style.display = 'none'; // Piilotetaan "Luo tili" -nappi
+                                          document.getElementById('tervetulo_teksti').style.display = 'none'; // Piilotetaan "Tervetuloa" -teksti
+                                        }
+                                        
+                                        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+                                          event.preventDefault(); // Estää lomakkeen lähettämisen
+                                        
+                                          // Haetaan syötetyt tiedot
+                                          var username = document.getElementById('username').value;
+                                          var email = document.getElementById('email').value;
+                                          var password = document.getElementById('password').value;
+                                          
+                                          // Piilotetaan rekisteröintilomake
+                                          document.getElementById('registrationForm').style.display = 'none';
+                                          
+                                          // Näytetään rekisteröintitiedot
+                                          document.getElementById('usernameDisplay').innerText = 'Tervetuloa: ' + username;
+                                       
+                                          // Näytetään rekisteröintitiedot-div
+                                          document.getElementById('registrationDetails').style.display = 'block';
+                                        });
+                                      </script>
+                                    </body>       
+                                </html>
+                            </head>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 								
-
-<head>
-	
-	</html>
-	<!DOCTYPE html>
-	<html lang="fi">
-	
-	<head>
-		
-		<script type="text/javascript" language="javascript" src="js\gr.js"></script>
-		<script type="text/javascript">
-			function tarkistaKirjautuminen() {
-				var kirjautunut = localStorage.getItem('kirjautunut');
-				var kirjauduUlosNappi = document.getElementById('kirjaudu_ulos_nappi');
-	
-				if (kirjautunut) {
-					kirjauduUlosNappi.style.display = 'block';
-				} else {
-					kirjauduUlosNappi.style.display = 'none';
-				}
-			}
-	
-			function kirjauduUlos() {
-				localStorage.removeItem('kirjautunut');
-				tarkistaKirjautuminen(); 
-			}
-	
-			document.addEventListener('DOMContentLoaded', function () {
-				tarkistaKirjautuminen();
-			});
-		</script>
-	</head>
-	
-	<body>
-		
-		<p id="tervetulo_teksti">Tervetuloa </p>
-		<form id="kirjautumis_lomake">
-			<h1><input id="nimi" type="text" placeholder="Syötä nimesi" value="" />
-				
-			</h1>
-				<h3><input id="salasana" type="password" placeholder="salasana" value="" /></h3>
-				<h3><input type="submit" value="Kirjaudu sisään" id="kirjaudu_nappi" onclick="kirjaudu()" /></h3>
-			</form>
-			<h2><button id="kirjaudu_ulos_nappi" style="display: none;" onclick="kirjauduUlos(localStorage.clear())">Kirjaudu ulos</button></h2>
-			
-			<h4>	
-				  				
-				  <li class="nav-item" id="menu_nappi" style="display: none;">
-					<a class="nav-link js-scroll-trigger" href="#menu"><span>Menu</span></a>
-				</li>	  
-			</h4>
-	</body>
-	
-    
-	
-								
-
-							</head>
-			</body>
-
-
-			
-		
-	</section>
-	
-	
-
+                           
+                        
+                                
     <div id="about" class="section lb">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-6">
                     <div class="message-box">                        
-                        <h2>Tervettuloa hyvään pizzaan!</h2>
+                        <h5>
                         <p>Meidän ravintolassa on mahtavat pizzat ja meillä käytetään vain kotimaalaisia ainesosia. Meillä on todella laaja valikoima, eli löydät varmasti jonkun pizzan mikä juuri sinulle kuuluu.  </p>
 						<p>Meidän työntekiät ovat todella mukavia kaikille asiakkaille ja he kuuntelevat myös jos haluat tehdä pizzaan omia muutoksia. 
                          Meillä on myös meidän oma verkkosivumme jota käytät tällä hetkellä, pystyt tilata oman pizzan menu kohdasta painamalla sen pizzan hintaa. 
 						 Hyvää pizzaista päivää toivottaa meidän henkilökunta</p>
+			    <p>______________________________________________________________________________</p>
+		
+			    <p>Our restaurant has great pizzas and we only use domestic ingredients. We have a really wide selection, so you are sure to find a pizza that belongs to you.</p>
+			    <p>Our employees are really nice to all customers and they also listen if you want to make your own changes to the pizza. 
+                         We also have our own website that you are currently using, you can order your own pizza from the menu item by clicking on the price of that pizza. 
+						 Happy pizza day is wished by our staff</p></h5>
                       
                     </div><!-- end messagebox -->
                 </div><!-- end col -->
@@ -190,12 +238,11 @@
 <div id="yhteishinta"></div>
 
 			</div>
-			<!DOCTYPE html>
-<html lang="en">
-<head>
+		
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ostoskori</title>
+	
     <script>
         var ostoskori = []; // Alusta tyhjä ostoskori
 
@@ -223,11 +270,39 @@
             // Päivitä yhteishinnan näyttö
             yhteishintaElementti.textContent = "Yhteishinta: " + yhteishinta + "€";
         }
+
+        function tilaa() {
+            // Simuloidaan tilauksen lähettäminen
+            alert("Tilaus lähetetty!");
+            // Tyhjennetään ostoskori ja päivitetään näyttö
+            ostoskori = [];
+            paivitaOstoskori();
+        }
     </script>
 </head>
 <body>
 
-
+	<h2>Osoitetiedot:</h2>
+	<form>
+		<div class="section-label text-left">
+		<label for="Katuosoite">Katuosoite:</label>
+		</div>
+		<input type="text" id="osoite" name="osoite"><br><br>
+		<div class="section-label text-left">
+		<label for="Postinumero">Postinumero:</label>
+	</div>
+		<input type="text" id="talo" name="talo"><br><br>
+		<div class="section-label text-left">
+		<label for="Talon numero">Talon numero:</label>
+		</div>
+		<input type="text" id="talonNumero" name="talonNumero"><br><br>
+		<div class="section-label text-left">
+		<label for="Lisätietoa">Lisätietoa:</label>
+	</div>
+		<input type="text" id="Lisätietoa" name="ovikoodi"><br><br>
+	
+	</form>
+	<button onclick="tilaa()">Valmistele tilaus</button>
 
 
 
@@ -246,17 +321,19 @@
                 <img src="uploads/menu-img-01.jpg" class="img-fluid" alt="" />
             </div>
             <h2>Pepperoni</h2>
-            <h1><input type="button" value="12€" onclick="lisaa_tuote('Pepperoni', 12)" /></h1>
+            <h1> <input type="button" value="12€" onclick="lisaa_tuote('Pepperoni', 12)" /> </h1>
+	    <p>Pepperoni, cheese, tomato sauce (g)</p>	
         </div>
-    </div>
+    </div><!-- end col -->
     
     <div class="col-md-3">
         <div class="services-inner-box">
             <div class="ser-icon">
-                <img src="uploads/menu-img-02.jpg" class="img-fluid" alt="" />
+                <img src="uploads/margherita-pizza.02.jpg" class="img-fluid" alt="" />
             </div>
             <h2>Margherita</h2>
             <h1><input type="button" value="11€" onclick="lisaa_tuote('Margherita ', 11)" /></h1>
+            <p>Mozzarella, Basil, San Marzano tomatoes (g)</p>
         </div>
     </div><!-- end col -->
     <!-- Pizza3 -->
@@ -267,7 +344,9 @@
             </div>
             <h2>Kana bbq</h2>
             <h1><input type="button" value="12€" onclick="lisaa_tuote('Kana bbq', 12)" /></h1>
+	    <p>Chicken, Barbecue sauce, cheese, olives, jalapeno, tomato sauce (g)</p>
         </div>
+    </div><!-- end col -->
 
 		
 
@@ -297,16 +376,18 @@
             </div>
             <h2>Hawaiian</h2>
             <h1><input type="button" value="12€" onclick="lisaa_tuote('Hawaiian', 12)" /></h1>
+	    <p>Pineapple, ham slices, cheese, tomato sauce (g)</p>
         </div>
-    </div>
+    </div><!-- end col -->
     
     <div class="col-md-3">
         <div class="services-inner-box">
-            <div class="ser-icon">
+            <div class="ser-icon">	
                 <img src="uploads/menu-img-05.jpg" class="img-fluid" alt="" />
             </div>
             <h2>Napolitana</h2>
             <h1><input type="button" value="13€" onclick="lisaa_tuote('Napolitana', 13)" /></h1>
+	    <p>Cheese, olives, tomato sauce (g)</p>
         </div>
     </div><!-- end col -->
     <!-- Pizza3 -->
@@ -315,10 +396,11 @@
             <div class="ser-icon">
                 <img src="uploads/menu-img-06.jpg" class="img-fluid" alt="" />
             </div>
-            <h2>kasvis</h2>
-            <h1><input type="button" value="14€" onclick="lisaa_tuote('kasvis', 14)" /></h1>
+            <h2>Kasvis</h2>
+            <h1><input type="button" value="14€" onclick="lisaa_tuote('Kasvis', 14)" /></h1>
+	    <p>Tomato, vegan cheese, basil, tomato slices (g)</p>
         </div>
-
+      </div><!-- end col -->
 		
 
 		
@@ -326,155 +408,108 @@
     <!-- Lisää muita pizza-elementtejä samalla tavalla -->
 </div><!-- end row -->
 
-</body>
-</html>
 
-			
-		
-				</div><!-- end col -->
-				
-			
-			</div><!-- end row -->
-			
-			<!-- Ostoskorin näyttö -->
-			
-			
-			</body>
-			</html>
-			
-                </div><!-- end col -->
-            </div><!-- end row -->
-        </div><!-- end container -->
-    </div><!-- end section -->
-	
+<html>
 	<div id="gallery" class="section wb">
 		<div class="container-fluid">
-			<div class="section-title text-center">
-                <h3>Gallery</h3>
-                <p>Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus.</p>
-            </div><!-- end title -->
 			
-			<div class="gallery-menu text-center row">
-				<div class="col-md-12">
-					<div class="button-group filter-button-group">
-						<button class="hvr-radial-in active" data-filter="*">All</button>
-						<button class="hvr-radial-in" data-filter=".gal_a">Starters</button>
-						<button class="hvr-radial-in" data-filter=".gal_b">Shops</button>
-						<button class="hvr-radial-in" data-filter=".gal_c">Main Course </button>
-						<button class="hvr-radial-in" data-filter=".gal_d">Desserts</button>
-					</div>
-				</div>
-			</div>
-			
-			<div class="gallery-list row">
-				<div class="col-md-4 col-sm-6 gallery-grid gal_a gal_b">
-					<div class="gallery-single fix">
-						<img src="uploads/gallery_img-01.jpg" class="img-fluid" alt="Image">
-						<div class="img-overlay">
-							<h3>Vegetable Food</h3>
-							<a href="uploads/gallery_img-01.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="fa fa-picture-o"></i></a>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-md-4 col-sm-6 gallery-grid gal_a gal_b">
-					<div class="gallery-single fix">
-						<img src="uploads/gallery_img-02.jpg" class="img-fluid" alt="Image">
-						<div class="img-overlay">
-							<h3>Vegetable Food</h3>
-							<a href="uploads/gallery_img-02.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="fa fa-picture-o"></i></a>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-md-4 col-sm-6 gallery-grid gal_b gal_c">
-					<div class="gallery-single fix">
-						<img src="uploads/gallery_img-03.jpg" class="img-fluid" alt="Image">
-						<div class="img-overlay">
-							<h3>Vegetable Food</h3>
-							<a href="uploads/gallery_img-03.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="fa fa-picture-o"></i></a>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-md-4 col-sm-6 gallery-grid gal_b gal_a">
-					<div class="gallery-single fix">
-						<img src="uploads/gallery_img-04.jpg" class="img-fluid" alt="Image">
-						<div class="img-overlay">
-							<h3>Vegetable Food</h3>
-							<a href="uploads/gallery_img-04.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="fa fa-picture-o"></i></a>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-md-4 col-sm-6 gallery-grid gal_c gal_d">
-					<div class="gallery-single fix">
-						<img src="uploads/gallery_img-05.jpg" class="img-fluid" alt="Image">
-						<div class="img-overlay">
-							<h3>Vegetable Food </h3>
-							<a href="uploads/gallery_img-05.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="fa fa-picture-o"></i></a>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-md-4 col-sm-6 gallery-grid gal_c gal_d">
-					<div class="gallery-single fix">
-						<img src="uploads/gallery_img-06.jpg" class="img-fluid" alt="Image">
-						<div class="img-overlay">
-							<h3>Vegetable Food </h3>
-							<a href="uploads/gallery_img-06.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="fa fa-picture-o"></i></a>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-md-4 col-sm-6 gallery-grid gal_c gal_b">
-					<div class="gallery-single fix">
-						<img src="uploads/gallery_img-07.jpg" class="img-fluid" alt="Image">
-						<div class="img-overlay">
-							<h3>Vegetable Food </h3>
-							<a href="uploads/gallery_img-07.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="fa fa-picture-o"></i></a>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-md-4 col-sm-6 gallery-grid gal_d gal_c">
-					<div class="gallery-single fix">
-						<img src="uploads/gallery_img-08.jpg" class="img-fluid" alt="Image">
-						<div class="img-overlay">
-							<h3>Vegetable Food </h3>
-							<a href="uploads/gallery_img-08.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="fa fa-picture-o"></i></a>
-						</div>
-					</div>
-				</div>
-				
-				
-				
-			</div>
-		</div>
-	</div>
-	
-	 
+        </div>
+    </div>
+</html>
 
-           
-                        <!-- end testimonial -->
+<head>
 
-                       
-                        <!-- end testimonial -->
+<title>Palautelomake</title>
+<style>
+    .stars {
+        display: inline-block;
+    }
 
-                      
-                            <!-- end testi-meta -->
-                          
+    .star {
+        font-size: 2rem;
+        cursor: pointer;
+        color: gray;
+    }
 
-                      
-                        </div><!-- end testimonial -->
-                    </div><!-- end carousel -->
-                </div><!-- end col -->
-            </div><!-- end row -->
-        </div><!-- end container -->
-    </div><!-- end section -->
+    .star:hover,
+    .star.active {
+        color: gold;
+    }
+</style>
+</head>
+<body>
+    <div class="section-title text-center"> 
+<h6>Anna palautetta</h6>
 
-	
-	
+<div id="rating-stars" class="stars">
+    <span class="star" data-value="1">&#9733;</span>
+    <span class="star" data-value="2">&#9733;</span>
+    <span class="star" data-value="3">&#9733;</span>
+    <span class="star" data-value="4">&#9733;</span>
+    <span class="star" data-value="5">&#9733;</span>
+   
+
+</div>
+
+    </div>
+
+<div class="section-title text-center">
+    <div class="section-title text-center">
+        <textarea id="feedback" placeholder="Kirjoita palautteesi tähän..." rows="2" cols="50" required ></textarea><br><br>
+        <input type="email" id="posti" name="email" required></input>
+    </div>
+    <button onclick="submitFeedback()">Lähetä palautetta</button>
+    
+    <script>
+        let rating = 0;
+    
+        const stars = document.querySelectorAll('.star');
+    
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                rating = parseInt(star.getAttribute('data-value'));
+                highlightStars(rating);
+            });
+        });
+    
+        function highlightStars(value) {
+            stars.forEach(star => {
+                if (parseInt(star.getAttribute('data-value')) <= value) {
+                    star.classList.add('active');
+                } else {
+                    star.classList.remove('active');
+                }
+            });
+        }
+    
+        function submitFeedback() {
+            const feedback = document.getElementById('feedback').value.trim();
+            const posti = document.getElementById('posti').value.trim(); // Lisätty posti-muuttujan määrittely
+    
+            if (posti === '') { // Lisätty ehto sähköpostin pakollisuudelle
+                alert('Anna sähköpostisi');
+                return;
+            }
+           else if (rating === 0) {
+                alert('Anna arvio tähdillä!');
+                return;
+            }
+            if (feedback === '') {
+                alert('Kirjoita palautteesi!');
+                return;
+            }
+            
+    
+            // Voit tässä vaiheessa tehdä jotain palautteella, esim. lähettää sen palvelimelle
+            console.log('Arvio:', rating);
+            console.log('Palautteesi:', feedback);
+            // Tässä voit lisätä logiikan palautteen käsittelyä varten, kuten lähettää sen palvelimelle
+            alert('Palautteesi on vastaanotettu. Kiitos!');
+        }
+    </script>
+    
+</body>
+</html>	
     <div class="copyrights">
         <div class="container-fluid">
             <div class="footer-distributed">
@@ -512,3 +547,4 @@
     <script src="js/custom.js"></script>
 </body>
 </html>
+
